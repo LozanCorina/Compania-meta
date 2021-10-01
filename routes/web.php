@@ -14,21 +14,35 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-
-    $data=App\Models\Partner::all()->take(3);
-    return view('welcome',compact('data'));
+    return view('welcome');
 })->name('acasa');
 
 Route::get('/{pages}', 'PagesController@Pages')->name('pages')
 ->where('pages','contacte|despre|parteneri');
 
-//admin
 Auth::routes();
-Route::resource('crud', CRUDController::class);
-Route::get('/dashboard',function () {
-    return view('pages.admin.admin');
-})->name('admin');
 
-Route::get('partners/{partner}','PagesController@index')->name('partner_detail');
-Route::get('/admin-messages','PagesController@displayMessages')->name('message.index');
-Route::post('/mesaj-store','PagesController@storeMessages')->name('mesaj.store');
+
+Route::middleware('auth')->group(function () {
+
+    //auth for employees
+    Route::resource('/reports',ReportsController::class);
+
+    //auth for admin
+    Route::group(['prefix' => 'admin','middleware'=>'admin'], function () {
+        Route::get('/dashboard',function () {
+            return view('pages.admin.admin');
+        })->name('admin');
+
+        Route::resource('crud', CRUDController::class);
+        
+        
+        Route::get('partners/{partner}','PagesController@index')->name('partner_detail');
+        Route::get('/admin-messages','PagesController@displayMessages')->name('message.index');
+        Route::post('/mesaj-store','PagesController@storeMessages')->name('mesaj.store');
+        
+        });
+});
+
+
+
