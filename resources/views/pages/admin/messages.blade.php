@@ -1,4 +1,4 @@
-@extends('layouts.second')
+@extends('layouts.admin')
 <!-- ========================= SECTION CONTENT ========================= -->
 @section('content')
 <section class="section-content bg padding-y border-top">

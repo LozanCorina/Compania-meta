@@ -1,7 +1,7 @@
-@extends('layouts.second')
+@extends('layouts.admin')
 <!-- ========================= SECTION CONTENT ========================= -->
 @section('content')
-<section class="section-content bg padding-y"> 
+<section class="section-content bg padding-y">
 <section class=" col-6 my-5 mx-auto">
 @if ($errors->any())
             <div class="alert alert-danger">
@@ -11,7 +11,7 @@
                     @endforeach
                 </ul>
             </div>
-        @endif 
+        @endif
         @if($message=Session::get('message'))
         <div class="alert-success">
             <div class="alert alert-success alert-block">
@@ -35,14 +35,14 @@
             <div class="form-group">
                 <label>Description</label>
                 <input class="form-control" name="description" type="text" value="{{$data->description}}">
-            </div> <!-- form-group// --> 
-            <div class="form-group my-1"> 
+            </div> <!-- form-group// -->
+            <div class="form-group my-1">
             <input type="file" name="img">
             <img class="img-fluid" src="{{asset('/uploads/'.$data->img)}}"/>
-            </div> <!-- form-group// -->  
+            </div> <!-- form-group// -->
             <div class="form-group my-1">
                 <button type="submit" class="btn btn-primary btn-block">Submit </button>
-            </div> <!-- form-group// -->                                                           
+            </div> <!-- form-group// -->
         </form>
         </article>
         </div> <!-- card.// -->

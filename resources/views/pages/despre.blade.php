@@ -1,11 +1,11 @@
-@extends('layouts.main')
+@extends('layouts.employee')
 <!-- ========================= SECTION CONTENT ========================= -->
 @section('content')
 <section class="section-content bg padding-y border-top">
     <div class="container">
     <h1 class="h1-responsive font-weight-bold text-center my-5">Despre noi</h1>
                 <!-- Section description -->
-               
+
                 <p class="text-center w-responsive">Suntem plini de emoții când trebuie să povestim de unde am pornit și câte provocări am avut.</p>
         <div class="row">
             <main class="col-xl-12 col-lg-12 col-md-12 col-sm-12">

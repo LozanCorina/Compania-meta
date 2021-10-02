@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.employee')
 <!-- ========================= SECTION CONTENT ========================= -->
 @section('content')
 <section class="section-content bg py-5 border-top">
@@ -6,14 +6,14 @@
     <nav class="mb-3">
 		<ol class="breadcrumb">
 			<li><a class="nav-link" href="{{route('acasa')}}">Acasa</a></li>
-		</ol> 
+		</ol>
     </nav>
     <div class="row">
     <div class="col-xl-12 col-md-12 col-sm-12">
     <main class="card">
         <div class="row no-gutters">
             <aside class="col-sm-6 border-right">
-                <article class="gallery-wrap"> 
+                <article class="gallery-wrap">
                     <div class="img-wrap">
                         <a class="fancy" href="{{asset('/uploads/'.$partner->img)}}"><img src="{{asset('/uploads/'.$partner->img)}}" class="img-fuid mx-auto"></a>
                     </div> <!-- slider-product.// -->
@@ -26,7 +26,7 @@
                 <dl>
                 <dt>Description</dt>
                 <dd><p>{{$partner->description}}</p></dd>
-                </dl>		
+                </dl>
                 <!-- short-info-wrap .// -->
                 </article> <!-- card-body.// -->
                 </aside> <!-- col.// -->

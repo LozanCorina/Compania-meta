@@ -1,4 +1,4 @@
-@extends('layouts.second')
+@extends('layouts.admin')
 <!-- ========================= SECTION CONTENT ========================= -->
 @section('content')
 <section class="section-content bg padding-y border-top">
@@ -14,7 +14,7 @@
                         @endforeach
                     </ul>
                 </div>
-            @endif 
+            @endif
             @if($message=Session::get('message'))
             <div class="alert-success">
                 <div class="alert alert-success alert-block">
@@ -24,12 +24,12 @@
             </div>
             @endif
     </section>
-     <nav class="mb-3">	
-			<a  type="button" class="btn btn-block" href="{{route('crud.create')}}">Create</a>		
+     <nav class="mb-3">
+			<a  type="button" class="btn btn-block" href="{{route('crud.create')}}">Create</a>
     </nav>
         @if($data->count())
         @foreach($data as $row)
-            <div class="card"> 
+            <div class="card">
             <article class="itemlist">
                 <div class="row row-sm">
                     <aside class="col-sm-3">
@@ -39,7 +39,7 @@
                         <div class="text-wrap">
                             <h4 class="title"> {{$row->title}} </h4>
                             <p> {{$row->description}} </p>
-                            
+
                         </div> <!-- text-wrap.// -->
                     </div> <!-- col.// -->
                     <aside class="col-sm-3">

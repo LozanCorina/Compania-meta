@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.employee')
 <!-- ========================= SECTION CONTENT ========================= -->
 @section('content')
 <section class="section-content bg py-5 border-top">
@@ -17,7 +17,7 @@
                     @endforeach
                 </ul>
             </div>
-        @endif 
+        @endif
         @if($message=Session::get('message'))
         <div class="alert-success">
             <div class="alert alert-success alert-block">
@@ -25,7 +25,7 @@
                 <strong>{{$message}}</strong>
             </div>
         </div>
-        @endif  
+        @endif
       <!-- Grid row -->
       <div class="row d-flex justify-content-center">
         <!-- Grid column -->
@@ -56,8 +56,8 @@
               </form>
             </div>
           </div><!-- Form with header -->
-        </div><!-- Grid column -->     
-        
+        </div><!-- Grid column -->
+
       </div><!-- Grid row -->
     </section><!-- Section: Contact v.1 -->
 	</div>
