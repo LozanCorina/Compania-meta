@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.employee')
 <!-- ========================= SECTION CONTENT ========================= -->
 @section('content')
 <section class="section-content bg padding-y">

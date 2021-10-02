@@ -43,7 +43,7 @@
     // jquery ready start
     $(document).ready(function() {
 	// jQuery code
-}); 
+});
 // jquery end
 </script>
 
@@ -60,13 +60,10 @@
                           <div class="collapse navbar-collapse" id="navbarNav">
                               <ul class="navbar-nav d-flex justify-content-left align-items-center py-1">
                                   <li>
-                                      <a class="nav-link" href="{{route('acasa')}}">Acas&#259; <span class="sr-only"></span></a>
+                                      <a class="nav-link" href="{{route('admin')}}">Home <span class="sr-only"></span></a>
                                   </li>
                                   <li>
-                                    <a class="nav-link" href="{{route('crud.index')}}"> Raport</a>
-                                  </li>
-                                  <li>
-                                    <a class="nav-link" href="{{route('message.index')}}"> Istoric </a>
+                                    <a class="nav-link" href="{{route('crud.index')}}"> Angajati</a>
                                   </li>
                                   <li>
                                     <div class="col-auto">
@@ -136,7 +133,7 @@
                                             </div> <!--  dropdown-menu .// -->
                                         </div>  <!-- widget-header .// -->
                                     </div> <!-- col.// -->
-                                </li>                          
+                                </li>
                               </ul>
                           </div>
 
@@ -165,7 +162,7 @@
                                 </span>
                               </div>
                           </form> <!-- search-wrap .end// -->
-                      </div> <!-- col.// -->               
+                      </div> <!-- col.// -->
                   </div> <!-- row.// -->
               </div> <!-- container.// -->
           </section> <!-- header-main .// -->
@@ -185,7 +182,7 @@
                     <h5 class="title">Contul meu</h5>
                     <ul class="list-unstyled">
                         <li> <a href="{{ route('login') }}"> Logare</a></li>
-                        <li> <a href=""> &#206;nregistrare </a></li>              
+                        <li> <a href=""> &#206;nregistrare </a></li>
                     </ul>
                 </aside>
             </div> <!-- row.// -->
