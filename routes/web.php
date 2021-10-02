@@ -24,6 +24,7 @@ Auth::routes();
 
 
 Route::middleware('auth')->group(function () {
+    Route::get('/employee', 'EmployeeController@index')->name('employee.home');
 
     //auth for employees
     Route::resource('/reports',ReportsController::class);
@@ -31,16 +32,16 @@ Route::middleware('auth')->group(function () {
     //auth for admin
     Route::group(['prefix' => 'admin','middleware'=>'admin'], function () {
         Route::get('/dashboard',function () {
-            return view('pages.admin.admin');
+            return view('pages.admin.index');
         })->name('admin');
 
         Route::resource('crud', CRUDController::class);
-        
-        
+
+
         Route::get('partners/{partner}','PagesController@index')->name('partner_detail');
         Route::get('/admin-messages','PagesController@displayMessages')->name('message.index');
         Route::post('/mesaj-store','PagesController@storeMessages')->name('mesaj.store');
-        
+
         });
 });
 

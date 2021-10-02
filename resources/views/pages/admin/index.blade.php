@@ -1,4 +1,4 @@
-@extends('layouts.second')
+@extends('layouts.admin')
 <!-- ========================= SECTION CONTENT ========================= -->
 @section('content')
   <div class="d-flex justify-content-center">
