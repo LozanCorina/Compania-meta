@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Report;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ReportsController extends Controller
@@ -24,7 +25,9 @@ class ReportsController extends Controller
      */
     public function create()
     {
-        echo "aa";
+        $date=Carbon::now()->format('Y-n');
+        //echo $date;
+        return view('pages.employee.report',compact('date'));
     }
 
     /**
@@ -35,7 +38,8 @@ class ReportsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Report::create($request->all());
+        return redirect()->route('reports.create');
     }
 
     /**

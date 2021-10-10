@@ -7,7 +7,12 @@
 <title>sport-analysis.md</title>
 <link rel="shortcut icon" type="image/x-icon" href="{{ asset('front_assets/images/icons/icon1.png')}}">
 
+<!--Data tables js-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+
+
 <!-- Bootstrap4 files-->
 <script src="{{ asset('front_assets/js/bootstrap.bundle.min.js')}}" type="text/javascript"></script>
 <link href="{{asset('front_assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>

@@ -22,9 +22,9 @@ Route::get('/{pages}', 'PagesController@Pages')->name('pages')
 
 Auth::routes();
 
-
 Route::middleware('auth')->group(function () {
-    Route::get('/employee', 'EmployeeController@index')->name('employee.home');
+    Route::get('/roles', 'PagesController@redirectRoles')->name('dashboard');
+    Route::get('/employee', 'EmployeeController@index')->name('employee');
 
     //auth for employees
     Route::resource('/reports',ReportsController::class);

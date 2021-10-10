@@ -5,10 +5,23 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Message;
 use App\Models\Partner;
+use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
 {
 
+    public function redirectRoles()
+    {
+        $role = Auth::user()->is_admin;
+        switch ($role) {
+            case '1':
+                return redirect()->route('admin');
+                break;
+            case '0':
+                return redirect()->route('employee');
+                break;
+        }
+    }
   public function index(Partner $partner)
   {
 

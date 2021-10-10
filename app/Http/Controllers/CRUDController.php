@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Partner;
 use File;
@@ -14,8 +15,8 @@ class CRUDController extends Controller
      */
     public function index()
     {
-        $data=Partner::all();
-        return view('pages.admin.parteneri',compact('data'));
+        $users= User::all();
+        return view('pages.admin.angajati',compact('users'));
     }
 
     /**
@@ -41,13 +42,13 @@ class CRUDController extends Controller
             'description'=>'required',
             'img'=>'required',
             ]);
-      
+
        // Partner::create($request->all());
        $image = $request->file('img');
         $extenstion = $image->getClientOriginalExtension();
         $filename= time().'.'.$extenstion;
         $image->move('uploads', $filename);
-            
+
        Partner::create([
            'title'=>$request->title,
            'description'=>$request->description,
@@ -95,7 +96,7 @@ class CRUDController extends Controller
             'description'=>'required',
             ]);
             $partner=Partner::find($id);
-                                
+
             if($request->hasfile('img')) {
                 $path='uploads/'.$partner->img;
                 if(File::exists($path))
@@ -109,14 +110,14 @@ class CRUDController extends Controller
                 Partner::where('id',$id)->update(['title'=>$request->title,
                 'description'=>$request->description,
                 'img'=>$filename]);
-               
-            
+
+
             }
             else{
                 Partner::where('id',$id)->update(['title'=>$request->title,
                 'description'=>$request->description]);
-            }          
-        
+            }
+
         return redirect()->route('crud.index')->with('message','Item was updated!');
     }
 
