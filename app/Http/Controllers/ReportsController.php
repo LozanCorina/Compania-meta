@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Report;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReportsController extends Controller
 {
@@ -15,7 +16,10 @@ class ReportsController extends Controller
      */
     public function index()
     {
-        //
+        $data=Report::where('employee',auth()->user()->id)->get();
+       // return $data;
+
+        return view('pages.employee.history',compact('data'));
     }
 
     /**
@@ -26,8 +30,15 @@ class ReportsController extends Controller
     public function create()
     {
         $date=Carbon::now()->format('Y-n');
-        //echo $date;
-        return view('pages.employee.report',compact('date'));
+        $dates=Report::get('created_at');
+        $validation=0;
+        foreach ($dates as $d)
+        {
+            (Carbon::parse($d->created_at)->format('Y-n') == $date ? $validation=1: '');
+
+        }
+
+        return view('pages.employee.report',compact('date','validation'));
     }
 
     /**
@@ -38,8 +49,13 @@ class ReportsController extends Controller
      */
     public function store(Request $request)
     {
+       $request->validate([
+           'matches'=>'required',
+           'corners'=>'required',
+       ]);
+
         Report::create($request->all());
-        return redirect()->route('reports.create');
+        return redirect()->route('reports.create')->with('message','Data was added successfully!');
     }
 
     /**
@@ -48,9 +64,8 @@ class ReportsController extends Controller
      * @param  \App\Models\Report  $report
      * @return \Illuminate\Http\Response
      */
-    public function show(Report $report)
+    public function show()
     {
-        //
     }
 
     /**
@@ -61,7 +76,8 @@ class ReportsController extends Controller
      */
     public function edit(Report $report)
     {
-        //
+        $date=Carbon::parse($report->created_at)->format('Y-n');
+        return view('pages.employee.update',compact('report','date'));
     }
 
     /**
@@ -73,7 +89,11 @@ class ReportsController extends Controller
      */
     public function update(Request $request, Report $report)
     {
-        //
+       // Report::where('id',$report->id)->update($request->all());
+
+        $input = $request->all();
+        $report->fill($input)->save();
+        return redirect()->route('reports.index')->with('message','Item was updated successfully');
     }
 
     /**
@@ -82,8 +102,26 @@ class ReportsController extends Controller
      * @param  \App\Models\Report  $report
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Report $report)
+    public function destroy(Request $request)
     {
-        //
+        try {
+            Report::find($request->id)->delete();
+            $message = 'Item was successfully deleted!';
+            return response()->json(['success' => true, 'results' => $message]);
+        } catch (\Exception $e) {
+            return json_encode(['error' => true, 'results' => print_r($e, true)]);
+        }
+    }
+    public function check(Request $request)
+    {
+        $date=$request->date;
+        $dates=Report::get('created_at');
+        $validation=0;
+        foreach ($dates as $d)
+        {
+            (Carbon::parse($d->created_at)->format('Y-n') == $date ? $validation=1: '');
+
+        }
+        return response()->json($validation);
     }
 }

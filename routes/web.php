@@ -27,6 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/employee', 'EmployeeController@index')->name('employee');
 
     //auth for employees
+    Route::get('/reports/check','ReportsController@check')->name('reports.check');
     Route::resource('/reports',ReportsController::class);
 
     //auth for admin

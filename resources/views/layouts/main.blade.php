@@ -2,9 +2,9 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <head>
-    <title>comania-meta.md</title>
+    <title>sport-analysis.md</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('front_assets/images/icons/icon1.png')}}">
 
     <!--Data tables js-->
@@ -195,15 +195,6 @@
                         @endif
                         <li> <a href="{{ route('login') }}"> Logare client </a></li>
                         <li> <a href="{{route('register')}}"> &#206;nregistrare </a></li>
-                        <li> <a href="{{ route('logout') }}"
-                                 onclick="event.preventDefault();
-                                                                document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-                        </li>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
                     </ul>
                 </aside>
             </div> <!-- row.// -->
