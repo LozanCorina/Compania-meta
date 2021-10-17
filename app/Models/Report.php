@@ -25,7 +25,12 @@ class Report extends Model
         'tag_trainer',
         'rating',
         'm_account',
-        'user_id'
+        'user_id',
+        'employee'
     ];
+    public function account()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 
 }

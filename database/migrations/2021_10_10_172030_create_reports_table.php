@@ -31,6 +31,7 @@ class CreateReportsTable extends Migration
             $table->integer('rating')->nullable();
             $table->integer('m_account')->nullable();
             $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('employee')->constrained('users');
             $table->timestamps();
         });
     }
