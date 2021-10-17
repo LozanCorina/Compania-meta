@@ -2,9 +2,10 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
 <head>
-<title>comania-meta.md</title>
+<title>sport-analysis.md</title>
 <link rel="shortcut icon" type="image/x-icon" href="{{ asset('front_assets/images/icons/icon1.png')}}">
 
 <!--Data tables js-->
@@ -38,8 +39,8 @@
 
 <!-- our styles -->
 <link href="{{asset('front_assets/css/styles.css')}}" rel="stylesheet" type="text/css" />
-
-
+    <!--Swall-->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script type="text/javascript">
     /// some script
@@ -70,7 +71,7 @@
                                     <a class="nav-link" href="{{route('reports.create')}}"> Reports </a>
                                   </li>
                                   <li class="{{'despre'== request()->path() ? 'active':''}}">
-                                    <a class="nav-link" href="{{route('pages','despre')}}"> History </a>
+                                    <a class="nav-link" href="{{route('reports.index')}}"> History </a>
                                   </li>
                                   <li class="{{'contacte'== request()->path() ? 'active':''}}">
                                     <a class="nav-link" href="{{route('pages','contacte')}}"> Contacts </a>
@@ -193,15 +194,6 @@
                     <ul class="list-unstyled">
                         <li> <a href="{{ route('login') }}"> Logare client </a></li>
                         <li> <a href="{{route('register')}}"> &#206;nregistrare </a></li>
-                        <li> <a href="{{ route('logout') }}"
-                                                    onclick="event.preventDefault();
-                                                                document.getElementById('logout-form').submit();">
-                                                    {{ __('Logout') }}
-                                                </a>
-                                     </li>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
                     </ul>
                 </aside>
             </div> <!-- row.// -->
