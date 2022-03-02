@@ -1,64 +1,53 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+ 
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Menu: Acasă, Parteneri, Despre noi, Contacte.
 
-## About Laravel
+ 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Pagina Acasă: va conține:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Un slideshow/Carousel (Bootstrap) cu cîteva imagini la alegerea ta.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Mai jos ultimii 3 parteneri adăugați (folosește Bootstrap card)
 
-## Learning Laravel
+Footer (la discreția ta cum va arăta)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+ 
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Pagina Parteneri,  va conțină un grid (Bootstrap) cu imagine și titlu pentru fiecare partener unde vei afișa ultimii 9 parteneri adăugați, cînd apeși pe un partener, se va deschide o pagină unde va apărea detaliile partenerului care vor fi alcătuite din: Titlu, imagine, detalii (text).
 
-## Laravel Sponsors
+ 
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Pagina:  Despre noi, va conține o pagină obișnuită cu o imagine mare cît lățimea paginii și mai jos o descriere ( text ).
 
-### Premium Partners
+ 
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
+Pagina:  Contacte, va conține o pagină cu un formular unde utilizatorul va introduce nume, adresa email, mesaj, la click pe butonul [Trimite mesaj] vei salva conținutul în baza de date într-o tabelă creată pentru această pagină.
 
-## Contributing
+ 
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+In Footer vei adăuga un buton: Login,
 
-## Code of Conduct
+La click pe acest buton se va deschide o pagină de login cu username și password (Pentru Login folosește sistemul de autentificare de la Laravel sau oricare la discreția ta) , după login utilizatorul va fi direcționat către un panel de administrare a site-ului:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+ Panelul de administrare va conține un menu cu butoanele: Parteneri / Mesaje / Logout
 
-## Security Vulnerabilities
+ 
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Cînd faci click pe opțiunea Parteneri din menu se va deschide pagina parteneri din admin:
 
-## License
+La începutul paginii să fie un buton: [ Adaugă partener ], la click se va deschide o pagină cu un formular unde vei adăuga un partener cu următoarele informații: Titlu, imagine, descriere.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Mai jos de acest de butonul [Adaugă partener] va fi lista de parteneri, în drept cu fiecare partener să fie butoanele [Edit] [Delete].
+
+ - Dacă faci click pe DELETE să se șteargă din baza de date acel partener.
+
+ - Dacă faci click pe EDIT, atunci se va deschide o pagină în care vei edita conținutul partenerului (titlu, imagine, descriere).
+
+ 
+
+Cînd faci click pe opțiunea Mesaje din menu, vei afișa lista de mesaje adăugat de utilizatori în pagina: Contacte
+
+ 
+
+Cînd faci click pe Logout, sesiunea se va încheia și utilizatorul va fi direcționat către prima Acasă.
